@@ -6,16 +6,22 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + TS</title>
+  <script type="module" src="/lib/index.ts"></script>
 </head>
 
 <body>
   <div id="app">
     <h1>TurtleModelViewer examples</h1>
-    <turtle-model-viewer></turtle-model-viewer>
+    <turtle-model-viewer product="flipflop"></turtle-model-viewer>
 
   </div>
-  <script type="module" src="/lib/index.ts"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // window.TurtleModelViewer.setup(window, '17908104-ff18-47fa-96ce-8c2d784e1233')
+      window.TurtleModelViewer.setup(window, 'b5273844-dcc1-45c0-88e9-e21fa9411a0c')
 
+    })
+  </script>
 </body>
 
 </html>
