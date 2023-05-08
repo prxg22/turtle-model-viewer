@@ -1,5 +1,11 @@
 {
+  "exclude": [
+    "dist/**/*",
+    "node_modules/**/*",
+  ],
   "compilerOptions": {
+    "rootDir": "./lib",
+    "declaration": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -10,16 +16,11 @@
     "moduleResolution": "Node",
     "strict": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": true,
-    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true
-  },
-  "include": [
-    "lib",
-    "../turtle-app/server/types.ts"
-  ]
+  }
 }

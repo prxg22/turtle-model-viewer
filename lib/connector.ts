@@ -1,10 +1,9 @@
-import type { Product } from '../../turtle-app/server/types'
+import type { Product } from './types'
 
-export const baseUrl = new URL('https://d1ax4zfrjmdkij.cloudfront.net/')
-// export const baseUrl = new URL('http://127.0.0.1:3000/')
+export const baseUrl = new URL(import.meta.env.VITE_TURTLE_APP_URL)
 
 export const authenticateCustomer = async (apiToken: string) => {
-  const url = new URL(baseUrl)
+  const url = baseUrl
   url.pathname = '/api/customers/auth'
   url.searchParams.set('t', apiToken)
 
@@ -13,7 +12,6 @@ export const authenticateCustomer = async (apiToken: string) => {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    // mode: 'no-cors',
   }
   const response = await fetch(url, config)
 
@@ -26,7 +24,7 @@ export const authenticateCustomer = async (apiToken: string) => {
 export const fetchProduct = async (options: { productSlug?: string }) => {
   if (!options.productSlug) throw new Error('Missing customer or product')
 
-  const url = new URL(baseUrl)
+  const url = baseUrl
   url.pathname = `/api/products/${options.productSlug}`
   const config: RequestInit = {
     credentials: 'include',
